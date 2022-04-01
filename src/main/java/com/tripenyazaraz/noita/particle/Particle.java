@@ -1,5 +1,7 @@
 package com.tripenyazaraz.noita.particle;
 
+import com.tripenyazaraz.noita.engine.Field;
+
 public interface Particle {
 
     int getX();
@@ -10,6 +12,6 @@ public interface Particle {
 
     void setY(int y);
 
-    void step();
+    void step(Field field);
 
 }

@@ -1,6 +1,6 @@
 package com.tripenyazaraz.noita.particle;
 
-public abstract class AbstractParticle implements Particle {
+public abstract class AbstractParticle {
 
     private int x;
 
@@ -27,7 +27,4 @@ public abstract class AbstractParticle implements Particle {
         this.y = y;
     }
 
-    public void step() {
-
-    }
 }

@@ -15,11 +15,36 @@ public class Field {
         this.field = new Particle[width][height];
     }
 
-    public void cleanAll() {
+    public int getWidth() {
+        return this.getField().length;
+    }
+
+    public int getHeight() {
+        return this.getField()[0].length;
+    }
+
+    public void clearAll() {
         for (int x = 0; x < field.length; x++) {
             for (int y = 0; y < field[x].length; y++) {
                 field[x][y] = new Void(x, y);
             }
         }
+    }
+
+    public void physicsStep() {
+        for (Particle[] axis : field) {
+            for (Particle particle : axis) {
+                particle.step(this);
+            }
+        }
+    }
+
+    public boolean isEmpty(int x, int y) {
+        return (x <= this.getWidth()-1 && x >= 0 && y <= this.getHeight()-1 && y >= 0)
+                && this.getField()[x][y] instanceof Void;
+    }
+
+    public void putParticle(Particle particle) {
+        field[particle.getX()][particle.getY()] = particle;
     }
 }
