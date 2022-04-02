@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.canvas.Canvas?>
+<?import com.tripenyazaraz.noita.engine.Engine?>
+
+<HBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.tripenyazaraz.noita.NoitaController">
+    <VBox>
+        <Canvas fx:id="canvas" width="1420" height="1080"
+                onMousePressed="#onCanvasPressed" onMouseReleased="#onCanvasReleased">
+        </Canvas>
+    </VBox>
+    <HBox>
+
+    </HBox>
+</HBox>
