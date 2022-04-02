@@ -8,18 +8,18 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class HelloApplication extends Application {
+public class NoitaApp extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(NoitaApp.class.getResource("noita.fxml"));
+        Scene scene = new Scene(fxmlLoader.load(), Engine.FIELD_WIDTH, Engine.FIELD_HEIGHT);
+        stage.setTitle("Noita");
         stage.setScene(scene);
         stage.show();
     }
 
     public static void main(String[] args) {
-//        launch();
-        Engine engine = new Engine();
+        launch();
+//        Engine engine = new Engine();
     }
 }
