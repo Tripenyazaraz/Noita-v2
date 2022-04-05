@@ -40,8 +40,11 @@ public class Field {
     }
 
     public boolean isEmpty(int x, int y) {
-        return (x <= this.getWidth()-1 && x >= 0 && y <= this.getHeight()-1 && y >= 0)
-                && this.getField()[x][y] instanceof Void;
+        return (x <= this.getWidth()-1 &&
+                x >= 0 &&
+                y <= this.getHeight()-1 &&
+                y >= 0) &&
+                this.getField()[x][y] instanceof Void;
     }
 
     public void putParticle(Particle particle) {
