@@ -1,10 +1,15 @@
-package com.tripenyazaraz.noita.engine;
+package com.tripenyazaraz.noita.ui;
 
-import static com.tripenyazaraz.noita.Context.*;
+import com.tripenyazaraz.noita.particle.powder.Sand;
 
-public class PhysicsThread extends Thread {
+import static com.tripenyazaraz.noita.Context.engine;
+import static com.tripenyazaraz.noita.Utils.toInt;
 
-    private boolean isPaused = false;
+public class MouseThread extends Thread {
+
+    int x, y;
+
+    private boolean isPaused = true;
 
     private long timeOutInMillis = 0;
 
@@ -20,9 +25,9 @@ public class PhysicsThread extends Thread {
         this.timeOutInMillis = millis;
     }
 
-    public PhysicsThread() {}
+    public MouseThread() {}
 
-    public PhysicsThread(long timeOutInMillis) {
+    public MouseThread(long timeOutInMillis) {
         this.setTimeOut(timeOutInMillis);
     }
 
@@ -35,8 +40,9 @@ public class PhysicsThread extends Thread {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                engine.field.physicsStep();
+                engine.field.putParticle(new Sand(toInt(x), toInt(y)));
             }
         }
     }
+
 }

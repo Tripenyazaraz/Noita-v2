@@ -1,30 +1,33 @@
 package com.tripenyazaraz.noita.particle;
 
-public abstract class AbstractParticle {
+import static com.tripenyazaraz.noita.Context.engine;
 
-    private int x;
+public abstract class AbstractParticle implements Particle {
 
-    private int y;
+    public int x;
 
-    public AbstractParticle(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
+    public int y;
 
     public int getX() {
-        return this.x;
+        return x;
+    }
+
+    public int getY() {
+        return y;
     }
 
     public void setX(int x) {
         this.x = x;
     }
 
-    public int getY() {
-        return this.y;
-    }
-
     public void setY(int y) {
         this.y = y;
+    }
+
+    public AbstractParticle(int x, int y) {
+        this.x = x;
+        this.y = y;
+        engine.field.putParticle(this);
     }
 
 }

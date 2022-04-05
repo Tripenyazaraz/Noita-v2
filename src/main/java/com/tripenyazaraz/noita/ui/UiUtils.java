@@ -1,7 +1,5 @@
 package com.tripenyazaraz.noita.ui;
 
-import com.tripenyazaraz.noita.particle.powder.Sand;
-import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -20,38 +18,52 @@ import java.util.List;
 import static com.tripenyazaraz.noita.Context.*;
 import static com.tripenyazaraz.noita.Utils.*;
 
-public class UiApp extends Application {
+public class UiUtils {
 
-    @Override
-    public void start(Stage stage) {
+    public static Stage createUi(Stage stage) {
         stage.setTitle("Noita");
         stage.setScene(createRootScene());
-        stage.show();
+        return stage;
     }
 
-    private Scene createRootScene() {
+    private static Scene createRootScene() {
+        // Create particle buttons
         List<ParticleButton> buttons = createButtons();
 
+        // create sidebar and fill it with buttons
         VBox sidebar = new VBox();
         sidebar.setSpacing(30);
         sidebar.setAlignment(Pos.TOP_CENTER);
         sidebar.getChildren().addAll(buttons);
 
+        // create canvas
         Canvas canvas = new Canvas(FIELD_WIDTH, FIELD_HEIGHT);
 
-        EventHandler<MouseEvent> onMousePressedEventHandler = t -> {
-            double x = t.getSceneX();
-            double y = t.getSceneY();
-            engine.field.putParticle(new Sand(toInt(x), toInt(y)));
+        // add mouse handlers to canvas
+        MouseThread mouseListener = new MouseThread(10);
+            // anytime it listen to current mouse position
+        EventHandler<MouseEvent> any = t -> {
+            mouseListener.x = toInt(t.getSceneX());
+            mouseListener.y = toInt(t.getSceneY());
         };
-
-        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, onMousePressedEventHandler);
+            // on click, it starts particle summon thread
+        EventHandler<MouseEvent> startSummonHandler = t -> {
+            mouseListener.release();
+        };
+            // on release, it stops particle summon thread
+        EventHandler<MouseEvent> stopSummonHandler = t -> {
+            mouseListener.pause();
+        };
+        canvas.addEventHandler(MouseEvent.ANY, any);
+        canvas.addEventHandler(MouseEvent.MOUSE_PRESSED, startSummonHandler);
+        canvas.addEventHandler(MouseEvent.MOUSE_RELEASED, stopSummonHandler);
+        mouseListener.start();
 
         HBox rootBox = new HBox(canvas, sidebar);
         return new Scene(rootBox);
     }
 
-    private List<ParticleButton> createButtons() {
+    private static List<ParticleButton> createButtons() {
         try {
             Path path = Path.of("data/particles");
             List<String> lines = Files.readAllLines(path);

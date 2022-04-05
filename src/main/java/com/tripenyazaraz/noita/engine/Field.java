@@ -39,15 +39,19 @@ public class Field {
         }
     }
 
-    public boolean isEmpty(int x, int y) {
+    public boolean isInBounds(int x, int y) {
         return (x <= this.getWidth()-1 &&
                 x >= 0 &&
                 y <= this.getHeight()-1 &&
-                y >= 0) &&
-                this.getField()[x][y] instanceof Void;
+                y >= 0);
+    }
+
+    public boolean isEmpty(int x, int y) {
+        return isInBounds(x, y) && this.getField()[x][y] instanceof Void;
     }
 
     public void putParticle(Particle particle) {
+        assert(isInBounds(particle.getX(), particle.getY()));
         field[particle.getX()][particle.getY()] = particle;
     }
 }
