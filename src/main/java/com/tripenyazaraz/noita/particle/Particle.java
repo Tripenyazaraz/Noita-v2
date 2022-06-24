@@ -1,17 +1,14 @@
 package com.tripenyazaraz.noita.particle;
 
-import com.tripenyazaraz.noita.engine.Field;
+public abstract class Particle {
 
-public interface Particle {
+    public void step() {
+        move();
+        actToNeighborhood();
+    }
 
-    int getX();
+    public void move() {}
 
-    void setX(int x);
-
-    int getY();
-
-    void setY(int y);
-
-    void step(Field field);
+    public void actToNeighborhood() {}
 
 }
