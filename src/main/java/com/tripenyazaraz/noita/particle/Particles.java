@@ -1,6 +1,6 @@
 package com.tripenyazaraz.noita.particle;
 
-public enum ParticleType {
+public enum Particles {
     EMPTY,
     STEAM,
     WATER,

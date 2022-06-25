@@ -8,7 +8,7 @@ import com.tripenyazaraz.noita.particle.Special.Empty;
 
 public class ParticleFabric {
 
-    public static Particle createParticleByName(int x, int y, ParticleType name) {
+    public static Particle createParticleByName(int x, int y, Particles name) {
         Particle particle = null;
         switch (name) {
             case EMPTY -> particle = new Empty(x, y);
