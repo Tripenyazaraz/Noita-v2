@@ -9,14 +9,14 @@ import java.util.List;
 
 public class Matrix {
 
-    public int width;
     public int height;
+    public int width;
 
     public List<List<Particle>> matrix;
 
-    public Matrix(int width, int height) {
-        this.width = width;
+    public Matrix(int height, int width) {
         this.height = height;
+        this.width = width;
         generateMatrix();
     }
 
@@ -25,7 +25,7 @@ public class Matrix {
         for (int y = 0; y < height; y++) {
             List<Particle> innerArray = new ArrayList<>();
             for (int x = 0; x < width; x++) {
-                innerArray.add(ParticleFabric.createParticleByName(x, y, Particles.EMPTY));
+                innerArray.add(ParticleFabric.createParticleByName(y, x, Particles.EMPTY));
             }
             matrix.add(innerArray);
         }
@@ -34,7 +34,15 @@ public class Matrix {
     public void clear() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                matrix.get(y).set(x, ParticleFabric.createParticleByName(x, y, Particles.EMPTY));
+                matrix.get(y).set(x, ParticleFabric.createParticleByName(y, x, Particles.EMPTY));
+            }
+        }
+    }
+
+    public void step(Vector gravity) {
+        for (int y = 0; y < height; y++) {
+            for (int x = 0; x < width; x++) {
+                matrix.get(y).get(x).step(this);
             }
         }
     }

@@ -11,32 +11,32 @@ public class Engine extends Thread {
     public Matrix matrix;
     public Vector gravity;
 
-    public long stepTimeOut;
+    public long stepRateInMillis;
     public boolean isOverloaded = false;
 
-    public Engine() {}
+    public Engine() {
+        this.configure();
+    }
 
     @Override
     public void run() {
 
-        this.configure();
+        long stepStartMillis;
+        long stepMillis;
 
-        long stepStartTime;
         while (!Thread.currentThread().isInterrupted()) {
             try {
-                stepStartTime = System.currentTimeMillis();
+                stepStartMillis = System.currentTimeMillis();
 
-                // logic
+                this.matrix.step(gravity);
 
-                long stepTime = System.currentTimeMillis() - stepStartTime;
-                if (stepTime < stepTimeOut) {
-                    Thread.sleep(stepTimeOut - stepTime);
-                    this.isOverloaded = false;
-                } else {
-                    this.isOverloaded = true;
+                stepMillis = System.currentTimeMillis() - stepStartMillis;
+                this.isOverloaded = stepMillis < stepRateInMillis;
+                if (!isOverloaded) {
+                    Thread.sleep(stepRateInMillis - stepMillis);
                 }
             } catch (InterruptedException e) {
-                e.printStackTrace();
+                break;
             }
         }
     }
@@ -47,14 +47,14 @@ public class Engine extends Thread {
             properties.load(new FileInputStream(GConst.PROPERTIES_FILE_PATH));
 
             this.matrix = new Matrix(
-                    Integer.parseInt(properties.getProperty("matrix.width")),
-                    Integer.parseInt(properties.getProperty("matrix.height"))
+                    Integer.parseInt(properties.getProperty("matrix.height")),
+                    Integer.parseInt(properties.getProperty("matrix.width"))
             );
             this.gravity = new Vector(
-                    Float.parseFloat(properties.getProperty("gravity.x")),
-                    Float.parseFloat(properties.getProperty("gravity.y"))
+                    Float.parseFloat(properties.getProperty("engine.gravity.y")),
+                    Float.parseFloat(properties.getProperty("engine.gravity.x"))
             );
-            this.stepTimeOut = Integer.parseInt(properties.getProperty("stepTimeOut"));
+            this.stepRateInMillis = Integer.parseInt(properties.getProperty("engine.stepRateInMillis"));
 
         } catch (IOException e) {
             throw new RuntimeException("Can not find properties file!");

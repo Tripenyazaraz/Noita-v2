@@ -4,8 +4,8 @@ import com.tripenyazaraz.noita.particle.Particle;
 
 public class Empty extends Particle {
 
-    public Empty(int x, int y) {
-        super(x, y);
+    public Empty(int y, int x) {
+        super(y, x);
     }
 
 }

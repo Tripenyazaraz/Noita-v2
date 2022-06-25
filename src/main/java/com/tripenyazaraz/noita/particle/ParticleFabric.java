@@ -8,14 +8,14 @@ import com.tripenyazaraz.noita.particle.Special.Empty;
 
 public class ParticleFabric {
 
-    public static Particle createParticleByName(int x, int y, Particles name) {
+    public static Particle createParticleByName(int y, int x, Particles name) {
         Particle particle = null;
         switch (name) {
-            case EMPTY -> particle = new Empty(x, y);
-            case STEAM -> particle = new Steam(x, y);
-            case WATER -> particle = new Water(x, y);
-            case STONE -> particle = new Stone(x, y);
-            case SAND -> particle = new Sand(x, y);
+            case EMPTY -> particle = new Empty(y, x);
+            case STEAM -> particle = new Steam(y, x);
+            case WATER -> particle = new Water(y, x);
+            case STONE -> particle = new Stone(y, x);
+            case SAND -> particle = new Sand(y, x);
         }
         assert particle != null;
         return particle;

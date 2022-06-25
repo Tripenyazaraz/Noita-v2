@@ -5,13 +5,13 @@ import com.tripenyazaraz.noita.engine.Vector;
 
 public abstract class Particle {
 
-    public int x;
     public int y;
+    public int x;
     public Vector velocity;
 
-    public Particle(int x, int y) {
-        this.x = x;
+    public Particle(int y, int x) {
         this.y = y;
+        this.x = x;
     }
 
     public void step(Matrix matrix) {

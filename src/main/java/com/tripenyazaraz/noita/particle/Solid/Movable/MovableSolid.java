@@ -4,8 +4,8 @@ import com.tripenyazaraz.noita.particle.Particle;
 
 public abstract class MovableSolid extends Particle {
 
-    public MovableSolid(int x, int y) {
-        super(x, y);
+    public MovableSolid(int y, int x) {
+        super(y, x);
     }
 
 }

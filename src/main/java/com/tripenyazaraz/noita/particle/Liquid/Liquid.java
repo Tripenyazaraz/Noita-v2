@@ -4,8 +4,8 @@ import com.tripenyazaraz.noita.particle.Particle;
 
 public abstract class Liquid extends Particle {
 
-    public Liquid(int x, int y) {
-        super(x, y);
+    public Liquid(int y, int x) {
+        super(y, x);
     }
 
 }
