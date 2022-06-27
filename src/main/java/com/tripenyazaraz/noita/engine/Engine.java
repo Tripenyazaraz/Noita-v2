@@ -28,6 +28,7 @@ public class Engine extends Thread {
                 stepStartMillis = System.currentTimeMillis();
 
                 this.matrix.step();
+                System.out.println("step");
 
                 stepMillis = System.currentTimeMillis() - stepStartMillis;
                 this.isOverloaded = stepMillis > stepRateInMillis;
