@@ -9,7 +9,6 @@ import java.util.Properties;
 public class Engine extends Thread {
 
     public Matrix matrix;
-    public Vector gravity;
 
     public long stepRateInMillis;
     public boolean isOverloaded = false;
@@ -28,10 +27,10 @@ public class Engine extends Thread {
             try {
                 stepStartMillis = System.currentTimeMillis();
 
-                this.matrix.step(gravity);
+                this.matrix.step();
 
                 stepMillis = System.currentTimeMillis() - stepStartMillis;
-                this.isOverloaded = stepMillis < stepRateInMillis;
+                this.isOverloaded = stepMillis > stepRateInMillis;
                 if (!isOverloaded) {
                     Thread.sleep(stepRateInMillis - stepMillis);
                 }
@@ -48,11 +47,11 @@ public class Engine extends Thread {
 
             this.matrix = new Matrix(
                     Integer.parseInt(properties.getProperty("matrix.height")),
-                    Integer.parseInt(properties.getProperty("matrix.width"))
-            );
-            this.gravity = new Vector(
-                    Float.parseFloat(properties.getProperty("engine.gravity.y")),
-                    Float.parseFloat(properties.getProperty("engine.gravity.x"))
+                    Integer.parseInt(properties.getProperty("matrix.width")),
+                    new Vector(
+                            Float.parseFloat(properties.getProperty("engine.gravity.y")),
+                            Float.parseFloat(properties.getProperty("engine.gravity.x"))
+                    )
             );
             this.stepRateInMillis = Integer.parseInt(properties.getProperty("engine.stepRateInMillis"));
 
