@@ -1,9 +1,8 @@
 package com.tripenyazaraz.noita.logic.engine;
 
 import com.tripenyazaraz.noita.logic.particle.Particle;
-import com.tripenyazaraz.noita.logic.particle.ParticleFabric;
-import com.tripenyazaraz.noita.logic.particle.Particles;
-import com.tripenyazaraz.noita.logic.particle.Special.Empty;
+import com.tripenyazaraz.noita.logic.particle.ParticleType;
+import com.tripenyazaraz.noita.logic.particle.Special.EmptyCell;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,7 @@ public class Matrix {
         for (int y = 0; y < height; y++) {
             List<Particle> innerArray = new ArrayList<>();
             for (int x = 0; x < width; x++) {
-                innerArray.add(ParticleFabric.createParticle(y, x, Particles.EMPTY));
+                innerArray.add(ParticleType.EMPTYCELL.createElementByMatrix(y, x));
             }
             matrix.add(innerArray);
         }
@@ -49,7 +48,7 @@ public class Matrix {
     public void clear() {
         for (int y = 0; y < height; y++) {
             for (int x = 0; x < width; x++) {
-                matrix.get(y).set(x, ParticleFabric.createParticle(y, x, Particles.EMPTY));
+                matrix.get(y).set(x, ParticleType.EMPTYCELL.createElementByMatrix(y, x));
             }
         }
     }
@@ -71,7 +70,7 @@ public class Matrix {
     }
 
     public boolean isEmpty(int y, int x) {
-        return isInBounds(y, x) && matrix.get(y).get(x) instanceof Empty;
+        return isInBounds(y, x) && matrix.get(y).get(x) instanceof EmptyCell;
     }
 
 }
