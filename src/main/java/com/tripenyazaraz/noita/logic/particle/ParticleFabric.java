@@ -1,10 +1,10 @@
-package com.tripenyazaraz.noita.particle;
+package com.tripenyazaraz.noita.logic.particle;
 
-import com.tripenyazaraz.noita.particle.Gas.Steam;
-import com.tripenyazaraz.noita.particle.Liquid.Water;
-import com.tripenyazaraz.noita.particle.Solid.Immovable.Stone;
-import com.tripenyazaraz.noita.particle.Solid.Movable.Sand;
-import com.tripenyazaraz.noita.particle.Special.Empty;
+import com.tripenyazaraz.noita.logic.particle.Gas.Steam;
+import com.tripenyazaraz.noita.logic.particle.Liquid.Water;
+import com.tripenyazaraz.noita.logic.particle.Solid.Immovable.Stone;
+import com.tripenyazaraz.noita.logic.particle.Solid.Movable.Sand;
+import com.tripenyazaraz.noita.logic.particle.Special.Empty;
 
 public class ParticleFabric {
 

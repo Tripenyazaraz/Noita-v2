@@ -1,7 +1,7 @@
-package com.tripenyazaraz.noita.particle;
+package com.tripenyazaraz.noita.logic.particle;
 
-import com.tripenyazaraz.noita.engine.Matrix;
-import com.tripenyazaraz.noita.engine.Vector;
+import com.tripenyazaraz.noita.logic.engine.Matrix;
+import com.tripenyazaraz.noita.logic.engine.Vector;
 
 public abstract class Particle {
 

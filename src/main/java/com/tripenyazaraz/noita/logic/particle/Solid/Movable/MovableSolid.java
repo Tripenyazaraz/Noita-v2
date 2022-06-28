@@ -1,8 +1,8 @@
-package com.tripenyazaraz.noita.particle.Solid.Movable;
+package com.tripenyazaraz.noita.logic.particle.Solid.Movable;
 
-import com.tripenyazaraz.noita.engine.Matrix;
-import com.tripenyazaraz.noita.engine.Vector;
-import com.tripenyazaraz.noita.particle.Particle;
+import com.tripenyazaraz.noita.logic.engine.Matrix;
+import com.tripenyazaraz.noita.logic.engine.Vector;
+import com.tripenyazaraz.noita.logic.particle.Particle;
 
 import java.util.SplittableRandom;
 

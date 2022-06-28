@@ -1,6 +1,6 @@
-package com.tripenyazaraz.noita.particle.Gas;
+package com.tripenyazaraz.noita.logic.particle.Gas;
 
-import com.tripenyazaraz.noita.particle.Particle;
+import com.tripenyazaraz.noita.logic.particle.Particle;
 
 public abstract class Gas extends Particle {
 

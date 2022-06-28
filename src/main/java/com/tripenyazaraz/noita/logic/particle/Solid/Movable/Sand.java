@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.particle.Solid.Movable;
+package com.tripenyazaraz.noita.logic.particle.Solid.Movable;
 
 public class Sand extends MovableSolid {
 

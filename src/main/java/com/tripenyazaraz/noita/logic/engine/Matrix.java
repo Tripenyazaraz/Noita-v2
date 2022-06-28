@@ -1,9 +1,9 @@
-package com.tripenyazaraz.noita.engine;
+package com.tripenyazaraz.noita.logic.engine;
 
-import com.tripenyazaraz.noita.particle.Particle;
-import com.tripenyazaraz.noita.particle.ParticleFabric;
-import com.tripenyazaraz.noita.particle.Particles;
-import com.tripenyazaraz.noita.particle.Special.Empty;
+import com.tripenyazaraz.noita.logic.particle.Particle;
+import com.tripenyazaraz.noita.logic.particle.ParticleFabric;
+import com.tripenyazaraz.noita.logic.particle.Particles;
+import com.tripenyazaraz.noita.logic.particle.Special.Empty;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.engine;
+package com.tripenyazaraz.noita.logic.engine;
 
 public class Vector {
 

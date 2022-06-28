@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.particle;
+package com.tripenyazaraz.noita.logic.particle;
 
 public enum Particles {
     EMPTY,

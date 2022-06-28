@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.particle.Gas;
+package com.tripenyazaraz.noita.logic.particle.Gas;
 
 public class Steam extends Gas {
 

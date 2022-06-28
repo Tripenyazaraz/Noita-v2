@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.engine;
+package com.tripenyazaraz.noita.logic.engine;
 
 import com.tripenyazaraz.noita.GConst;
 
@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class Engine extends Thread {
 
-    public Matrix matrix;
+    public volatile Matrix matrix;
 
     public long stepRateInMillis;
     public boolean isOverloaded = false;

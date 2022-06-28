@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.particle.Solid.Immovable;
+package com.tripenyazaraz.noita.logic.particle.Solid.Immovable;
 
 public class Stone extends ImmovableSolid {
 

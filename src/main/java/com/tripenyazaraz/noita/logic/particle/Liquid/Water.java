@@ -1,4 +1,4 @@
-package com.tripenyazaraz.noita.particle.Liquid;
+package com.tripenyazaraz.noita.logic.particle.Liquid;
 
 public class Water extends Liquid {
 

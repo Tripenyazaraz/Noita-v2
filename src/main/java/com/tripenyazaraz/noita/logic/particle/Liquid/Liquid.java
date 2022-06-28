@@ -1,6 +1,6 @@
-package com.tripenyazaraz.noita.particle.Liquid;
+package com.tripenyazaraz.noita.logic.particle.Liquid;
 
-import com.tripenyazaraz.noita.particle.Particle;
+import com.tripenyazaraz.noita.logic.particle.Particle;
 
 public abstract class Liquid extends Particle {
 
